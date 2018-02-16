@@ -8,18 +8,18 @@ Starter project for training classes. This is a partial implementation of a samp
 
 Follow the instructions to install MySQL for your platform. [MySQL site](https://dev.mysql.com)
 
-### 2. Create MySQL database and bookstore user 
+### 2. Clone this repository 
+
+```shell
+git clone https://github.com/neopragma/java-bookstore.git
+```
+
+### 3. Create MySQL database and bookstore user 
 
 This creates a database named _bookstore_ and a user named _bookstore_ on localhost with a password of _bookstore_. This is the application's userid for MySQL.
 
 ```shell
 mysql -u root -p < create_bookstore_database.sql 
-```
-
-### 3. Clone this repository 
-
-```shell
-git clone https://github.com/neopragma/java-bookstore.git
 ```
 
 ### 4. See if the build works 
