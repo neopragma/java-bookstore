@@ -37,7 +37,13 @@ Start the server on localhost.
 mvn spring-boot:run
 ```
 
-In a browser, navigate to http://localhost:8080. If the server returns something like the following, then you're doing OK so far. 
+In a browser, navigate to http://localhost:8080. Alternatively, if you have curl and jq installed, you can run: 
+
+```shell 
+curl -s http://localhost:8080 | jq .
+```
+
+If the server returns something like the following, then you're doing OK so far. 
 
 ```shell 
 {
