@@ -47,29 +47,38 @@ If the server returns something like the following, then you're doing OK so far.
 
 ```shell 
 {
-  "description":"Bookstore Service",
-  "version":"v1",
-  "requests":
-  [
+  "description": "Bookstore Service",
+  "version": "v1",
+  "requests": [
     {
-      "http-verb":"get",
-      "uri":"/",
-      "description":"returns api help"
+      "http-verb": "get",
+      "uri": "/",
+      "description": "returns api help"
     },
     {
-      "http-verb":"get",
-      "uri":"/v1/books",
-      "description":"returns list of all books"
+      "http-verb": "get",
+      "uri": "/v1/books",
+      "description": "returns list of all books"
     },
     {
-      "http-verb":"post",
-      "uri":"/v1/book",
-      "description":"add a book"
+      "http-verb": "post",
+      "uri": "/v1/book",
+      "description": "add a book"
     },
     {
-      "http-verb":"post",
-      "uri":"/v1/author",
-      "description":"add an author"
+      "http-verb": "get",
+      "uri": "/v1/authors",
+      "description": "returns list of all authors"
+    },
+    {
+      "http-verb": "post",
+      "uri": "/v1/author",
+      "description": "add an author"
+    },
+    {
+      "http-verb": "post",
+      "uri": "/v1/book/{bookId}/author/{authorId}",
+      "description": "associate an author with a book"
     }
   ]
 }

@@ -11,7 +11,10 @@ public class ApiHelper {
         { "get", "/", "returns api help" },
         { "get", "/v1/books", "returns list of all books" },
         { "post", "/v1/book", "add a book" },
-        { "post", "/v1/author", "add an author" }
+        { "get", "/v1/authors", "returns list of all authors" },
+        { "post", "/v1/author", "add an author" },
+        { "post", "/v1/book/{bookId}/author/{authorId}",
+            "associate an author with a book"}
     };
 
     public static String apiHelp() {

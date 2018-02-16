@@ -1,11 +1,13 @@
 package com.leadingagile.bookstore.helpers;
 
+import com.google.common.collect.ImmutableList;
 import com.leadingagile.bookstore.model.Author;
 import com.leadingagile.bookstore.repository.AuthorRepository;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 
 import javax.persistence.PersistenceException;
+import java.util.List;
 
 public class AuthorHelper {
 
@@ -23,4 +25,11 @@ public class AuthorHelper {
                     .body(null);
         }
     }
+
+    public static ResponseEntity<List<Author>> listAuthors(AuthorRepository repository) {
+        return ResponseEntity.ok()
+                .headers(new HttpHeaders())
+                .body(ImmutableList.copyOf(repository.findAll()));
+    }
+
 }

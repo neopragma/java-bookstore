@@ -54,6 +54,11 @@ public class Author {
     @NotBlank
     private String middleName;
 
+    /**
+     * This is to pacify Hibernate
+     */
+    public Author() {}
+
     @JsonCreator
     public Author(@JsonProperty("display-name") String displayName,
            @JsonProperty("surname") String surname,
