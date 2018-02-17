@@ -32,18 +32,7 @@ public class ISBN {
     private String isbn_13;
 
     /**
-     * This is to satisfy Hibernate. Spring + Gson construct the objects
-     * correctly using the constructor below and Hibernate populates the
-     * database correctly, but the lack of a no-arg constructor confuses
-     * Hibernate after the database has been populated.
-     *
-     * Without a no-arg constructor, JPA throws:
-     *
-     * JpaSystemException: No default constructor for entity:
-     * com.leadingagile.bookstore.model.ISBN;
-     * nested exception is org.hibernate.InstantiationException:
-     * No default constructor for entity:
-     * com.leadingagile.bookstore.model.ISBN
+     * This is to pacify Hibernate.
      */
     ISBN() {}
 
