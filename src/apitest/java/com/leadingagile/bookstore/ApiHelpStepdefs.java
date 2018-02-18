@@ -5,15 +5,12 @@ import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import cucumber.api.java8.En;
-import org.junit.jupiter.api.Tag;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.notNullValue;
+import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.fail;
 
 public class ApiHelpStepdefs implements En {
@@ -34,8 +31,6 @@ public class ApiHelpStepdefs implements En {
 
         Then("^client receives API help$", () -> {
             try {
-//                System.out.println("Response: " + jsonResponse.getBody());
-
                 assertThat(jsonResponse.getBody().getObject().get("description"),
                         is(equalTo("Bookstore Service")));
                 assertThat(jsonResponse.getBody().getObject().get("version"),

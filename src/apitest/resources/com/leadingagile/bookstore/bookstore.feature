@@ -11,3 +11,7 @@ Feature: Querying and adding books and authors
       | Word Wrangler | Lantana | Susanna    | Malana      |
       | Ed Mills      | Mills   | Edward     | Thomas      |
 
+  Scenario: Listing the authors in the system
+    Given 3 authors are defined
+    When I request a list of authors
+    Then I receive a list of the authors

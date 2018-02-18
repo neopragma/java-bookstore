@@ -137,7 +137,6 @@ public class Book {
         isbn = new ISBN(isbns);
     }
 
-
     public BigDecimal getPrice() {
         return price;
     }
@@ -146,6 +145,7 @@ public class Book {
         this.price = price;
     }
 
+    @JsonProperty("units-in-stock")
     public Integer getUnitsInStock() {
         return unitsInStock;
     }

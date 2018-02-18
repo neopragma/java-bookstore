@@ -73,10 +73,12 @@ public class ISBN {
         return hasISBN_13() ? isbn_13 : isbn_10;
     }
 
+    @JsonProperty("isbn-13")
     public String getISBN_13() {
         return isbn_13;
     }
 
+    @JsonProperty("isbn-10")
     public String getISBN_10() {
         return isbn_10;
     }

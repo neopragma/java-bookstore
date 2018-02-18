@@ -1,6 +1,7 @@
 package com.leadingagile.bookstore.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.validator.constraints.NotBlank;
@@ -15,8 +16,6 @@ import java.util.Set;
 @Entity
 @Table(name = "authors")
 @EntityListeners(AuditingEntityListener.class)
-@JsonIgnoreProperties(value = {"createdAt", "updatedAt"},
-        allowGetters = true)
 public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -78,6 +77,7 @@ public class Author {
         this.id = id;
     }
 
+    @JsonProperty("created-at")
     public Date getCreatedAt() {
         return createdAt;
     }
@@ -86,6 +86,7 @@ public class Author {
         this.createdAt = createdAt;
     }
 
+    @JsonProperty("updated-at")
     public Date getUpdatedAt() {
         return updatedAt;
     }
@@ -94,6 +95,7 @@ public class Author {
         this.updatedAt = updatedAt;
     }
 
+    @JsonProperty("display-name")
     public String getDisplayName() {
         return displayName;
     }
@@ -110,6 +112,7 @@ public class Author {
         this.surname = surname;
     }
 
+    @JsonProperty("given-name")
     public String getGivenName() {
         return givenName;
     }
@@ -118,6 +121,7 @@ public class Author {
         this.givenName = givenName;
     }
 
+    @JsonProperty("middle-name")
     public String getMiddleName() {
         return middleName;
     }
