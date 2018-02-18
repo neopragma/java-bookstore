@@ -34,12 +34,14 @@ public class ApiHelpStepdefs implements En {
 
         Then("^client receives API help$", () -> {
             try {
+//                System.out.println("Response: " + jsonResponse.getBody());
+
                 assertThat(jsonResponse.getBody().getObject().get("description"),
                         is(equalTo("Bookstore Service")));
                 assertThat(jsonResponse.getBody().getObject().get("version"),
                         is(notNullValue()));
             } catch (Exception e) {
-                fail("Exception " + e + " was thrown; no exception was expected");
+                fail("Exception \"" + e + "\" was thrown; no exception was expected");
             }
         });
     }

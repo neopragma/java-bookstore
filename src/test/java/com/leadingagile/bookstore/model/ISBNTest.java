@@ -27,7 +27,7 @@ class ISBNTest {
 
     @Test void it_rejects_null_isbn_list() {
         Throwable t = assertThrows(ContractViolationException.class,
-                ()-> new ISBN(null));
+                ()-> new ISBN((String[]) null));
         assertThat(t.getMessage(),
                 endsWith(MISSING_ISBN));
     }

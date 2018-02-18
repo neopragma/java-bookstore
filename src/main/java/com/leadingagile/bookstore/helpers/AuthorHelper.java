@@ -5,6 +5,7 @@ import com.leadingagile.bookstore.model.Author;
 import com.leadingagile.bookstore.repository.AuthorRepository;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.PersistenceException;
 import java.util.List;

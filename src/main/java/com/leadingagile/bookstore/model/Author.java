@@ -125,4 +125,23 @@ public class Author {
     public void setMiddleName(String middleName) {
         this.middleName = middleName;
     }
+
+    @Override
+    public int hashCode() {
+        return 1;
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other == null) return false;
+        if (other == this) return true;
+        if (!Author.class.isAssignableFrom(other.getClass())) return false;
+        Author that = (Author) other;
+        return (
+            displayName.equals(that.getDisplayName()) &&
+            surname.equals(that.getSurname()) &&
+            givenName.equals(that.getGivenName()) &&
+            middleName.equals(that.getMiddleName())
+        );
+    }
 }
