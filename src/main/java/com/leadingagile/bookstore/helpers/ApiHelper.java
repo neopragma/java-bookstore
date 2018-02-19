@@ -17,7 +17,7 @@ public class ApiHelper {
             "associate an author with a book"}
     };
 
-    public static String apiHelp() {
+    public String apiHelp() {
         JsonObject message = new JsonObject();
         message.addProperty("description", "Bookstore Service");
         message.addProperty("version", "v1");

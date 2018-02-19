@@ -25,12 +25,15 @@ public class BookstoreController {
     @Autowired
     AuthorRepository authorRepository;
 
+    private ApiHelper apiHelper;
+    private AuthorHelper authorHelper;
+
     /**
      * @return API help as a JSON document
      */
     @GetMapping("/")
     public String apiHelp() {
-        return ApiHelper.apiHelp();
+        return apiHelper().apiHelp();
     }
 
     /**
@@ -56,7 +59,7 @@ public class BookstoreController {
      */
     @GetMapping("/v1/authors")
     public ResponseEntity<List<Author>> listAuthors() {
-        return AuthorHelper.listAuthors(authorRepository);
+        return authorHelper().listAuthors(authorRepository);
     }
 
     /**
@@ -66,7 +69,7 @@ public class BookstoreController {
      */
     @PostMapping("/v1/author")
     public ResponseEntity<Author> createAuthor(@Valid @RequestBody Author author) {
-        return AuthorHelper.createAuthor(author, authorRepository);
+        return authorHelper().createAuthor(author, authorRepository);
     }
 
     @PostMapping("/v1/book/{bookId}/author/{authorId}")
@@ -78,6 +81,44 @@ public class BookstoreController {
                 authorId,
                 bookRepository,
                 authorRepository);
+    }
+
+    public BookRepository getBookRepository() {
+        return bookRepository;
+    }
+
+    public void setBookRepository(BookRepository bookRepository) {
+        this.bookRepository = bookRepository;
+    }
+
+    public AuthorRepository getAuthorRepository() {
+        return authorRepository;
+    }
+
+    public void setAuthorRepository(AuthorRepository authorRepository) {
+        this.authorRepository = authorRepository;
+    }
+
+    public ApiHelper apiHelper() {
+        if (apiHelper == null) {
+            apiHelper = new ApiHelper();
+        }
+        return apiHelper;
+    }
+
+    public void setApiHelper(ApiHelper apiHelper) {
+        this.apiHelper = apiHelper;
+    }
+
+    public AuthorHelper authorHelper() {
+        if (authorHelper == null) {
+            authorHelper = new AuthorHelper();
+        }
+        return authorHelper;
+    }
+
+    public void setAuthorHelper(AuthorHelper authorHelper) {
+        this.authorHelper = authorHelper;
     }
 
 }

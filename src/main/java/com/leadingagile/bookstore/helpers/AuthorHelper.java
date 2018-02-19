@@ -12,7 +12,7 @@ import java.util.List;
 
 public class AuthorHelper {
 
-    public static ResponseEntity<Author> createAuthor(
+    public ResponseEntity<Author> createAuthor(
             Author author,
             AuthorRepository authorRepository) {
         HttpHeaders headers = new HttpHeaders();
@@ -27,7 +27,7 @@ public class AuthorHelper {
         }
     }
 
-    public static ResponseEntity<List<Author>> listAuthors(AuthorRepository repository) {
+    public ResponseEntity<List<Author>> listAuthors(AuthorRepository repository) {
         return ResponseEntity.ok()
                 .headers(new HttpHeaders())
                 .body(ImmutableList.copyOf(repository.findAll()));

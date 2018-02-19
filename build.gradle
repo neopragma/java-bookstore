@@ -39,6 +39,7 @@ dependencies {
 //            'org.springframework.boot:spring-boot-starter-test:1.5.4.RELEASE',
             'org.junit.jupiter:junit-jupiter-api:5.1.0-RC1',
             'org.hamcrest:hamcrest-all:1.3',
+            'org.mockito:mockito-all:1.10.19'
 //            'com.mashape.unirest:unirest-java:1.4.9'
 
     )
@@ -50,7 +51,8 @@ dependencies {
     testRuntime(
             'org.junit.jupiter:junit-jupiter-engine:5.0.1',
             'org.junit.platform:junit-platform-runner:1.0.3',
-            'org.junit.platform:junit-platform-launcher:1.0.3'
+            'org.junit.platform:junit-platform-launcher:1.0.3',
+            'org.mockito:mockito-all:1.10.19'
     )
     integrationTestCompile( 
             'org.springframework.boot:spring-boot-starter-test:1.5.4.RELEASE'
