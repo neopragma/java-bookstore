@@ -1,7 +1,6 @@
 package com.leadingagile.bookstore.model;
 
 import com.neopragma.contracts.ContractViolationException;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
@@ -10,8 +9,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-@Tag("micro")
-class BookTest {
+public class BookTest {
 
     private final static String EMPTY_STRING = "";
     private final static String testISBN = "9781617291357";

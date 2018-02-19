@@ -17,6 +17,11 @@ public class BookstoreApplicationTests {
 
 	@Test
 	public void itReturnsApiHelp() {
+
+		System.out.println("\n\n====================");
+		System.out.println("In BookstoreApplicationTests.itReturnsApiHelp()");
+		System.out.println("====================\n\n");
+
         BookstoreController controller = new BookstoreController();
         assertThat(controller.apiHelp(),
             startsWith("{\"description\":\"Bookstore Service\",\"version\":\"v1\",\"requests\":["));
