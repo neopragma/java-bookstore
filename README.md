@@ -39,10 +39,18 @@ mvn install
 mvn test 
 ``` 
 
-Start the server on localhost.
+Start the server on localhost. 
+
+If using Maven:
 
 ```shell 
 mvn spring-boot:run
+```
+
+If using Gradle:
+
+```shell 
+gradle bootRun 
 ```
 
 In a browser, navigate to http://localhost:8080. Alternatively, if you have curl and jq installed, you can run: 
