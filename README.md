@@ -90,4 +90,9 @@ Postman is handy for playing with the API interactively. [Postman site](https://
 
 If you choose to use Postman, you will find some saved API calls in Backup.postman_dump.json. That file can be imported into Postman. 
 
+# User interface (optional)
+
+This is not a UI project. The sample application is a RESTful service. A separate project can be used to explore/test/demonstrate a web-based UI for the Bookstore service. The repo for that project is here: [Bookstore UI](https://github.com/neopragma/bookstore-ui).
+
+
 
