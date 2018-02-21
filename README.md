@@ -1,6 +1,14 @@
-# World's Smallest Bookstore
+# Java Bookstore
 
 Starter project for training classes. This is a partial implementation of a sample application. It constitutes a portion of the material used in the class. The class facilitator will provide further information about what to do with it. The project is not intended for self-study, although the code may contain some useful examples. 
+
+This version of Bookstore is based on the following technologies:
+
+- Java 8
+- JUnit 5
+- Spring Boot
+- JPA talking to MySQL 5.7
+- Cucumber (Ruby) for API testing
 
 # Setup 
 
