@@ -17,6 +17,9 @@ bin/
 .gradletasknamecache
 .gradle/
 
+#Ruby
+vendor
+
 ### STS ###
 .apt_generated
 .classpath
