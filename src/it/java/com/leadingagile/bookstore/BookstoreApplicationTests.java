@@ -4,27 +4,17 @@ import com.leadingagile.bookstore.controller.BookstoreController;
 import com.leadingagile.bookstore.helpers.ApiHelper;
 import com.leadingagile.bookstore.helpers.AuthorHelper;
 import com.leadingagile.bookstore.model.Author;
-import com.leadingagile.bookstore.repository.AuthorRepository;
-import com.leadingagile.bookstore.repository.BookRepository;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import static org.mockito.Mockito.when;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.doReturn;
-
-import org.mockito.Spy;
 import org.mockito.runners.MockitoJUnitRunner;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.http.ResponseEntity;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
+import java.util.List;
+
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 //@RunWith(SpringRunner.class)
 @RunWith(MockitoJUnitRunner.class)
@@ -36,43 +26,35 @@ public class BookstoreApplicationTests {
 	@Mock private AuthorHelper authorHelper;
 	@Mock private Author expectedAuthor;
 	@Mock private ResponseEntity<Author> authorResponseEntity;
-	@Mock private AuthorRepository authorRepository;
 
 	/**
 	 * Can't use JUnit5 @BeforeEach with MockitoJUnitRunner as of Feb 2018.
 	 */
-	@Before
-	public void beforeEach() {
+	@Before	public void beforeEach() {
 		controller = new BookstoreController();
 	}
 
-	@Test
-	public void itReturnsApiHelp() {
+	@Test public void controller_invokes_apihelper_to_get_api_help() {
 		controller.setApiHelper(apiHelper);
 		controller.apiHelp();
-		verify(apiHelper, times(1)).apiHelp();
+		verify(apiHelper, times(1))
+			.apiHelp();
 	}
 
-	@Test
-	public void itAddsAnAuthor() {
-        when(expectedAuthor.getDisplayName()).thenReturn("Mark Twain");
-        when(expectedAuthor.getSurname()).thenReturn("Clemens");
-        when(expectedAuthor.getGivenName()).thenReturn("Samuel");
-        when(expectedAuthor.getMiddleName()).thenReturn("Tiberius");
-        when(authorResponseEntity.getBody()).thenReturn(expectedAuthor);
-        when(authorHelper.createAuthor(expectedAuthor, null))
-				.thenReturn(authorResponseEntity);
+	@Test public void controller_invokes_author_helper_to_create_author() {
         controller.setAuthorHelper(authorHelper);
-
 		ResponseEntity<Author> responseEntity =
 		    controller.createAuthor(expectedAuthor);
+		verify(authorHelper, times(1))
+			.createAuthor(expectedAuthor, null);
+	}
 
-		Author actualAuthor = new Author(
-		    responseEntity.getBody().getDisplayName(),
-			responseEntity.getBody().getSurname(),
-			responseEntity.getBody().getGivenName(),
-			responseEntity.getBody().getMiddleName());
-		assertThat(actualAuthor, is(equalTo(expectedAuthor)));
+	@Test public void controller_invokes_author_helper_to_get_list_of_authors() {
+		controller.setAuthorHelper(authorHelper);
+		ResponseEntity<List<Author>> responseEntity =
+				controller.listAuthors();
+		verify(authorHelper, times(1))
+				.listAuthors(null);
 	}
 
 }
