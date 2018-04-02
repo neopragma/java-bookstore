@@ -5,8 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class BookTest {
@@ -20,10 +19,10 @@ public class BookTest {
 
     @Test void it_creates_a_new_book_with_default_title() {
         Book book = standardBook();
-        assertThat(book.getTitle(), is(equalTo(testTitle)));
-        assertThat(book.getISBN(), is(equalTo(testISBN)));
-        assertThat(book.getPrice(), is(equalTo(testPrice)));
-        assertThat(book.getUnitsInStock(), is(equalTo(testUnitsInStock)));
+        assertThat(book.getTitle()).isEqualTo(testTitle);
+        assertThat(book.getISBN()).isEqualTo(testISBN);
+        assertThat(book.getPrice()).isEqualTo(testPrice);
+        assertThat(book.getUnitsInStock()).isEqualTo(testUnitsInStock);
     }
 
     @Test void it_creates_a_new_book_with_title_300_characters_long() {
@@ -32,7 +31,7 @@ public class BookTest {
                 testPrice,
                 testUnitsInStock,
                 testISBN);
-        assertThat(book.getTitle(), is(equalTo(maxLengthTitle())));
+        assertThat(book.getTitle()).isEqualTo(maxLengthTitle());
     }
 
     @Test void it_rejects_a_null_book_title() {
@@ -42,7 +41,7 @@ public class BookTest {
                         testPrice,
                         testUnitsInStock,
                         testISBN));
-        assertThat(t.getMessage(), endsWith("Book title cannot be empty"));
+        assertThat(t.getMessage()).endsWith("Book title cannot be empty");
     }
 
     @Test void it_rejects_an_empty_book_title() {
@@ -52,7 +51,7 @@ public class BookTest {
                         testPrice,
                         testUnitsInStock,
                         testISBN));
-        assertThat(t.getMessage(), endsWith("Book title cannot be empty"));
+        assertThat(t.getMessage()).endsWith("Book title cannot be empty");
     }
 
     @Test void it_rejects_a_book_title_longer_than_300_characters() {
@@ -63,7 +62,7 @@ public class BookTest {
                         testPrice,
                         testUnitsInStock,
                         testISBN));
-        assertThat(t.getMessage(), endsWith("Book title cannot exceed 300 characters in length"));
+        assertThat(t.getMessage()).endsWith("Book title cannot exceed 300 characters in length");
     }
 
     @Test void an_author_can_be_added_to_a_book() {
@@ -74,7 +73,7 @@ public class BookTest {
                 testUnitsInStock,
                 testISBN);
         book.addAuthor(author);
-        assertThat(book.getAuthors().get(0).getDisplayName(), is(equalTo("Dr. Seuss")));
+        assertThat(book.getAuthors().get(0).getDisplayName()).isEqualTo("Dr. Seuss");
     }
 
     private Book standardBook() {
